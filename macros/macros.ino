@@ -45,6 +45,7 @@ void setup() {
   delay(300);
 }
 
+int counter = 0;
 
 void loop() {
   for (int i = 0; i < N_BUTTONS; ++i) {
@@ -52,7 +53,13 @@ void loop() {
     if (buttonState != currentState[i]) {
       currentState[i] = buttonState;
       if (buttonState == 1) {
-        Keyboard.print(macros[i]);
+        if (macros[i] == "INCREMENT") {
+          Keyboard.print(String(counter++));
+        } else if (macros[i] == "RESET") {
+          counter = 0;
+        } else {
+          Keyboard.print(macros[i]);  
+        }
 //        Serial.println(macros[i]);
         delay(100);
       }
