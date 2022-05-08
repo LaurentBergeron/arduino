@@ -9,17 +9,17 @@
 
 String macros[N_BUTTONS] = {
   // Left column (from 1 to 5)
-  "L1",
-  "L2",
-  "L3",
-  "L4",
-  "Hello I typed this from my macro keyboard!",
+  "INCREMENT",
+  "laurent.bergeron4@gmail.com",
+  "lbergeron@photonic.ca",
+  "laurentbergeroncreations.ca",
+  "",
   // Right column (from 1 to 5)
-  "R1",
-  "R2",
-  "R3",
-  "R4",
-  "R5",
+  "RESET",
+  "",
+  "",
+  "",
+  "",
 };
 
 int pins[N_BUTTONS] {
