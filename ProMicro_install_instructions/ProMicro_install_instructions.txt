@@ -1,0 +1,72 @@
+/*
+Copied from https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/installing-windows
+*/
+
+Installing: Windows
+
+Getting the Pro Micro or Fio v3 set up on your computer and in your Arduino environment can be difficult. Follow along on this page for a step-by-step guide through the driver installation and Arduino-enabling process.
+Windows Driver Installation
+Note: On a Windows 10 OS, the driver should automatically install. You may not need to download the driver for the Atmega-32U4-based Arduino. If that is the case, you can move to installing the board add-on for the Arduino IDE.
+Step 1: Download the Driver
+
+Before plugging your board in, get a head start by downloading the drivers. Check the GitHub Repository for the latest files. The same driver file works for both the Pro Micro and the Fio v3. The drivers for both the Fio and the Pro Micro are signed for Windows users. You can download them directly using the link below.
+
+Unzip that zip file, and don't forget where you've left its contents. In that zip file, you should find the .inf and .cat files, which contains all the information Windows needs to install the Pro Micro's driver. The sparkfun.inf driver and sparkfun.cat digitally signed catalog file will be found in ...Arduino_Boards-master/sparkfun/avr/signed_driver .
+Step 2: Plug in the Pro Micro / Fio v3
+
+When you initially plug the board in, an "Installing device driver software" bubble notification should pop up in the lower-right corner of your taskbar. After the green dot circles the grey box a number of times, you’ll probably get a sad bubble like this:
+
+Driver install failed
+
+Never fear! Windows just doesn't know where to find our driver.
+Note: Some users have experienced issues when plugging the Pro Micro into a USB 3.0 port. If you experience issues on USB 3.0 ports, try switching to use a USB 2.0 port.
+Step 3: Open the Device Manager
+
+From here, the most straightforward way to install the driver is through the Device Manager. To get to the Device Manager, click the Start button, then open the Control Panel. In the Control Panel, click System and Maintenance, and then open the Device Manager.
+
+Alternatively, you can open the Run prompt (Windows key+R) and type 'devmgmt.msc' and click OK.
+
+Run prompt opening device manager
+
+In the Device Manager, expand the 'Other devices' tree, where you should find a 'USB IO Board' with a yellow warning sign over its icon. Right-click the 'USB IO Board' and select Update Driver Software....
+
+Updating driver in device manager
+
+This should spawn an 'Update Driver Software - USB IO Board' window.
+Step 4: Finding the Driver
+
+In the first window that pops up, click 'Browse my computer for driver software'. On the next window, click 'Browse...' to search for the driver you just downloaded. It should be a folder named 'Arduino_Boards-master', in a subdirectory noted in step 1. After you’ve selected the 'driver' folder, click OK, then select Next.
+
+Driver install steps 1 through 5
+
+Windows will attempt to do its driver install thing, but not before complaining about the driver being unsigned. It’s safe to select 'Install this driver software anyway' on the warning dialog.
+
+After watching the progress bar beam by a few times, you should get a happy 'Windows has successfully updated your driver software' window. And the 'Device Manager' should have a new entry for the 'SparkFun Pro Micro (COM ##)' (or 'SparkFun Fio V3 (COM##)' if you have one of those) under the 'Ports' tree.
+
+Atmega-32U4 based Arduino Driver Installation
+
+Take note of which COM port your Pro Micro was assigned. We’ll need it soon.
+Installing the Arduino Addon
+
+We're still not completely ready for Arduino, but this is the final stretch. Before you can use the ProMicro in the Arduino IDE, you'll need to install the board (.brd) files for the Fio/Pro Micro so the Arduino IDE will know how to communicate with your board.
+Using the Board Manager
+
+With the release of Arduino 1.6.4, adding third party boards to the Arduino IDE is easily achieved through the board manager. If you're running an older version of Arduino (1.6.3 or earlier), we recommend upgrading now. As always, you can download the latest version of Arduino from arduino.cc.
+
+To begin, you'll need to point the Arduino IDE board manager to a custom URL. Open up Arduino, then go to the Preferences (File > Preferences). Then, towards the bottom of the window, paste this URL into the "Additional Board Manager URLs" text box:
+
+https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json
+
+You can add multiple URLs by clicking the window icon, and pasting in one URL per line.
+
+Adding Board Manager URL to Arduino preferences
+
+Click OK. Then open the Board Manager by clicking Tools, then hovering over the Board selection tab and clicking Board Manager.
+
+alt text
+
+Search for 'sparkfun' in the Board Manager. You should see the SparkFun AVR Boards package appear. Click install, wait a few moments, and all the .brd files you'll need should be installed, indicated by the blue 'Installed' that is printed next to the package.
+
+alt text
+
+You should now be able to upload code to a number of SparkFun Arduino-compatible products, including the Fio and the Pro Micro.
