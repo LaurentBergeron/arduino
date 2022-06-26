@@ -11,7 +11,7 @@ String macros[N_BUTTONS] = {
   // Left column (from 1 to 5)
   "INCREMENT",
   "laurent.bergeron4@gmail.com",
-  "lbergeron@photonic.ca",
+  "lbergeron@photonic.com",
   "laurentbergeroncreations.ca",
   "",
   // Right column (from 1 to 5)
